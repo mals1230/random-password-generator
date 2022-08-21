@@ -1,12 +1,6 @@
 // Mal notes - 
 
-
-// push() the randomly generated character to a empty array called passwordArray
-
-// return.passwordArray.join()  join takes an array and joins it down into a string
-
-
-// - Global Variables
+// - Global Variables section
 var lower = "abcdefghijklmnopqrstuvwxyz".split("");
 console.log(lower);
 var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -15,17 +9,24 @@ var numb = "1234567890".split("");
 console.log(numb);
 var specChar = ["!", "\u0022", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "\u005B", "\u005C", "\u005D", "^", "_", "`", "{", "|", "}", "~",];
 console.log(specChar);
-var passibleChars = []
+var possibleChars = []
 var passwordArray = []
-
 //
 
+// GIVEN NOTE - Assignment Code
+var generateBtn = document.querySelector("#generate");
+
+// GIVEN NOTE - Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
 
+// GIVEN NOTE - Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+// building the prompts
 var length = prompt("How many characters do you want your password to be? \nMust be between 8 and 128");
 function validateUserInput (length) {
   if (length < 8 || length > 128) { 
@@ -39,36 +40,20 @@ var userSpecChar = confirm("Would you like to include special characters?")
 
 if (!userLower && !userUpper && !userNumber && !userSpecChar) {
   alert("You need to select at least one type of character");
-  return generatePassword();
+  //return generatePassword(); --> this is causing an error still
 }
-
 if (userLower) {
-  possibleChars.concat(specialCharsArray)
+  possibleChars.concat(lower)
 }
-
 if (userUpper) {
-  possibleChars.concat(SpecialNumbsArray)
+  possibleChars.concat(upper)
 }
-
 if (userNumber) {
-  possibleChars.concat(SpecialNumbsArray)
+  possibleChars.concat(numb)
 }
-
 if (userSpecChar) {
-  possibleChars.concat(SpecialNumbsArray)
+  possibleChars.concat(specChar)
 }
 
-
-
-// GIVEN NOTES: Write password to the #password input
-
-
-
-
-generateBtn.addEventListener("click", writePassword);
-
-
-// GIVEN NOTES: Assignment code here
-var generateBtn = document.querySelector("#generate");
-// GIVEN NOTES: Add event listener to generate button
-generateBtn.addEventListener("click", function())
+passwordArray.push(possibleChars)
+return passwordArray.join()
