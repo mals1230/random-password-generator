@@ -56,4 +56,4 @@ if (userSpecChar) {
 }
 
 passwordArray.push(possibleChars)
-return passwordArray.join()
+//return passwordArray.join() --> This is causing an illegal return statement
