@@ -18,7 +18,7 @@ As an employee with access to sensitive data, I want to randomly generate a pass
 - WHEN all prompts are answered
 - THEN a password is generated that matches the selected criteria
 - WHEN the password is generated
-- THEN the password is either displayed in an alert or written to the page
+- THEN the password is written to the page
 
 ## Demo 
 ![random-password-generator-gif](RPG.gif)
